@@ -1,11 +1,4 @@
 
-
-
-#eq 5.1 in griffiths tavare 2003
-#n : sample size
-#b : subsample size
-#t : time
-
 #P(t | l) = P(l | t) P(t)
 dt <- function(t, l, n, b){
     f <- function(tc)dtl(tc, l) * d_mutant_age2(t-tc, n, b)
@@ -20,6 +13,12 @@ pl <- function(l){
     integrate(f, 0, Inf)$value
 }
 
+#eq 5.1 in griffiths tavare 2003
+#n : sample size
+#b : subsample size
+#t : time
+#d_mutant_age: exact eqn
+#d_mu
 d_mutant_age2 <- function(t, n, b){
     sapply(t, d_mutant_age_detapprox_st, n, b)
 }
